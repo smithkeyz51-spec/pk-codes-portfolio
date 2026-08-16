@@ -1,25 +1,146 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+// Carbon Signal: editorial asymmetry, carbon glass panels, acid signal accents, and evidence-led portfolio copy.
+import { useState } from "react";
+import { ArrowUpRight, Check, ChevronRight, Download, ExternalLink, Github, Linkedin, Mail, Menu, Minus, Send, Sparkles, X } from "lucide-react";
+import { toast } from "sonner";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
+const store = {
+  portrait: "/manus-storage/gideon-portrait_08ded09d.png",
+  resume: "/manus-storage/PKENE_J_GIDEON_Updated_Resume_LinkedIn_fe60cec4.pdf",
+  logo: "/manus-storage/pk-monogram_c30ccb10.png",
+  texture: "/manus-storage/carbon-signal-texture_4c94089c.png",
+};
+
+const projects = [
+  {
+    name: "Waka",
+    type: "Digital Product / Web Application",
+    description: "A crowdsourced fare-tracking platform helping Nigerian commuters check real-world transport fares before boarding.",
+    image: "/manus-storage/waka-cover_43d130cc.png",
+    tags: ["Product thinking", "Responsive web", "Vercel"],
+    url: "https://waka-eight.vercel.app/",
+  },
+  {
+    name: "Beacon",
+    type: "Web Application",
+    description: "A browser-based find-my-phone tool that connects a device and makes its location viewable from another browser.",
+    image: "/manus-storage/beacon-cover_b6e9925f.png",
+    tags: ["Device workflow", "Browser-based", "Maps"],
+    url: "https://beacon-wine-seven.vercel.app/",
+  },
+  {
+    name: "You're Enough",
+    type: "Digital Product",
+    description: "A platform for helping young people navigate life, purpose, pressure, and personal growth.",
+    image: "/manus-storage/enough-cover_cc9f8624.png",
+    tags: ["UX focus", "Accessibility", "Interactive"],
+    url: "https://youre-enoughv.vercel.app/",
+    github: "https://github.com/smithkeyz51-spec/youre-enoughv",
+  },
+];
+
+const skills = ["HTML", "CSS", "JavaScript · Learning", "Git", "GitHub", "Responsive Web Design", "Website Development", "UI/UX Fundamentals", "Product Thinking", "Digital Branding"];
+
+const services = [
+  { number: "01", title: "Web Development", copy: "Building responsive websites and modern web experiences.", tone: "lime" },
+  { number: "02", title: "Digital Products", copy: "Turning ideas into functional digital products designed around real problems.", tone: "blue" },
+  { number: "03", title: "UI / UX", copy: "Creating clean, intuitive interfaces with a focus on usability.", tone: "violet" },
+  { number: "04", title: "Creative Direction", copy: "Experience in branding, visual identity, digital content and creative direction.", tone: "orange" },
+];
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return <div className="section-label"><span className="signal-line" />{children}</div>;
+}
+
+function Socials() {
+  return <div className="socials" aria-label="Social links">
+    <a href="https://github.com/smithkeyz51-spec" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a>
+    <a href="https://www.linkedin.com/in/pkene-gideon-7138a8421" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a>
+    <a href="https://x.com/pkenecrypt" target="_blank" rel="noreferrer" aria-label="X"><X size={16} /></a>
+    <a href="mailto:smithkeyz51@gmail.com" aria-label="Email"><Mail size={16} /></a>
+  </div>;
+}
+
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [formSent, setFormSent] = useState(false);
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
-    </div>
-  );
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
+
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormSent(true);
+    toast.success("Thanks — your message is ready to be sent.");
+  };
+
+  return <div className="site-shell">
+    <header className="topbar">
+      <button className="brand" onClick={() => scrollTo("home")} aria-label="Back to top">
+        <span className="brand-mark"><img src={store.logo} alt="" /></span><span>PK CODES</span>
+      </button>
+      <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Primary navigation">
+        {["About", "Skills", "Projects", "Experience", "Contact"].map((item) => <button key={item} onClick={() => scrollTo(item.toLowerCase())}>{item}</button>)}
+        <a className="nav-cta" href="mailto:smithkeyz51@gmail.com">Contact Me <ArrowUpRight size={14} /></a>
+      </nav>
+      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</button>
+    </header>
+
+    <main>
+      <section className="hero section-wrap" id="home">
+        <div className="hero-text">
+          <div className="availability"><span className="status-dot" />Available for new projects</div>
+          <p className="eyebrow">SOFTWARE DEVELOPER <span>·</span> DIGITAL BUILDER</p>
+          <h1>Hi, I'm <em>Gideon.</em><br /><span>I build what matters.</span></h1>
+          <p className="hero-copy">I turn useful ideas into clear, functional digital experiences — from the first problem statement to the interface people actually use.</p>
+          <div className="hero-actions">
+            <button className="button button-primary" onClick={() => scrollTo("projects")}>View My Work <ArrowUpRight size={16} /></button>
+            <a className="button button-ghost" href="mailto:smithkeyz51@gmail.com">Contact Me <ArrowUpRight size={16} /></a>
+            <a className="cv-link" href={store.resume} target="_blank" rel="noreferrer">Download CV <Download size={14} /></a>
+          </div>
+          <div className="hero-footnote"><span>01</span><Minus size={14} /> From problem to product, with intention.</div>
+        </div>
+        <div className="hero-art">
+          <div className="art-orbit orbit-one" /><div className="art-orbit orbit-two" />
+          <div className="identity-stamp"><img src={store.logo} alt="PK Codes mark" /><span>PK / 026</span></div>
+          <div className="portrait-frame"><img src={store.portrait} alt="PK Codes portfolio reference" /><div className="portrait-caption"><span>PKENE J. GIDEON</span><span>LAGOS / NIGERIA</span></div></div>
+          <div className="hero-note"><Sparkles size={14} /> Useful ideas, real interfaces</div>
+        </div>
+      </section>
+
+      <section className="signal-strip section-wrap" id="skills">
+        <div className="strip-heading"><SectionLabel>TECHNOLOGICAL FOUNDATION</SectionLabel><p>The tools and skills I use to bring ideas to life.</p></div>
+        <div className="skill-rail">{skills.map((skill, index) => <span className="skill-pill" key={skill}><span className={`skill-icon icon-${index % 4}`} />{skill}</span>)}</div>
+      </section>
+
+      <section className="about section-wrap" id="about">
+        <div className="section-intro"><SectionLabel>ABOUT THE BUILDER</SectionLabel><h2>More than a<br /><span>developer.</span></h2></div>
+        <div className="about-copy"><p className="lead">I'm Gideon, a builder and software developer passionate about creating digital products and solutions that solve real-world problems.</p><p>I'm developing my expertise in software engineering while building websites and digital experiences. My background also includes creative direction, branding, community engagement and sales.</p><div className="about-tags"><span>Software Development</span><span>Digital Products</span><span>Creative Direction</span><span>Product Thinking</span></div></div>
+      </section>
+
+      <section className="services section-wrap">
+        <div className="services-heading"><SectionLabel>BEYOND JUST CODING</SectionLabel><p>I bring the problem, the product, and the pixels into the same conversation.</p></div>
+        <div className="service-grid">{services.map((service) => <article className={`service-card tone-${service.tone}`} key={service.number}><span className="card-number">{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><ChevronRight size={18} className="card-arrow" /></article>)}</div>
+      </section>
+
+      <section className="projects section-wrap" id="projects">
+        <div className="projects-heading"><div><SectionLabel>SELECTED WORKS</SectionLabel><h2>Featured <span>projects.</span></h2><p>A few useful things I’ve shaped from problem, to interface, to something people can try.</p></div><a className="text-link" href="https://github.com/smithkeyz51-spec" target="_blank" rel="noreferrer">See more on GitHub <ArrowUpRight size={15} /></a></div>
+        <div className="project-grid">{projects.map((project, index) => <article className={`project-card project-${index + 1}`} key={project.name}><a href={project.url} target="_blank" rel="noreferrer" className="project-image"><img src={project.image} alt={`${project.name} project cover`} /><span className="project-view">View live <ExternalLink size={13} /></span></a><div className="project-meta"><span className="project-type">{project.type}</span><h3>{project.name}</h3><p>{project.description}</p><div className="project-bottom"><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><div className="project-links"><a href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}><ArrowUpRight size={14} /></a>{project.github && <a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.name} GitHub`}><Github size={14} /></a>}</div></div></div></article>)}</div>
+      </section>
+
+      <section className="experience section-wrap" id="experience">
+        <div className="section-intro"><SectionLabel>EXPERIENCE</SectionLabel><h2>Where I’ve<br /><span>been useful.</span></h2></div>
+        <div className="timeline"><div className="timeline-item"><span className="timeline-date">2025 — PRESENT</span><div><h3>Creative Director</h3><p>Heralds Media & The Heralds Meridian</p><ul><li>Lead creative direction and visual identity</li><li>Design and oversee digital content, branding and media assets</li><li>Contributed to the Heralds digital presence and website</li></ul></div></div><div className="timeline-item"><span className="timeline-date">2024 — 2025</span><div><h3>Sales Representative</h3><p>GOV Real Estate</p><ul><li>Promoted real estate products and built customer relationships</li><li>Supported sales and marketing initiatives</li></ul></div></div><div className="timeline-item"><span className="timeline-date">2019 — 2021</span><div><h3>Computer Operator</h3><p>Faithville Computer Institute</p><ul><li>Document preparation, printing, typing, and office computer operations</li><li>Assisted students and clients; maintained digital records</li></ul></div></div></div>
+      </section>
+
+      <section className="building section-wrap"><div className="building-card"><div><SectionLabel>CURRENTLY BUILDING</SectionLabel><h2>Exploring new ideas,<br /><span>products and better ways<br />to build for the web.</span></h2></div><div className="building-status"><span className="status-dot" />Building<br /><small>OPEN TO COLLABORATION</small></div></div></section>
+
+      <section className="approach section-wrap"><div className="approach-heading"><SectionLabel>MY APPROACH</SectionLabel><h2>A clear path from<br /><span>idea to interface.</span></h2></div><div className="approach-list">{[["01", "Understand", "Understand the problem, audience and objective."], ["02", "Design", "Plan the experience and interface."], ["03", "Build", "Turn the idea into a functional digital product."], ["04", "Launch", "Test, refine and put the product in the hands of users."]].map(([number, title, copy]) => <div className="approach-step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><ArrowUpRight size={18} /></div>)}</div></section>
+
+      <section className="contact section-wrap" id="contact"><div className="contact-copy"><SectionLabel>LET'S MAKE SOMETHING USEFUL</SectionLabel><h2>Have a useful idea<br />worth <span>shipping?</span></h2><p>Show me the problem. We’ll shape what ships.</p><a className="button button-primary" href="mailto:smithkeyz51@gmail.com">Let's Work Together <ArrowUpRight size={16} /></a></div><form className="contact-form" onSubmit={submit}>{formSent ? <div className="form-success"><Check size={24} /><h3>Message prepared.</h3><p>Thanks for reaching out. I’ll be in touch soon.</p><button type="button" className="text-link" onClick={() => setFormSent(false)}>Send another message <ArrowUpRight size={14} /></button></div> : <><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about the idea..." /></label><button className="button button-primary" type="submit">Send Message <Send size={15} /></button></>}</form></section>
+    </main>
+
+    <footer className="footer section-wrap"><div><button className="footer-brand" onClick={() => scrollTo("home")}><img src={store.logo} alt="" />PK CODES</button><p>Software developer & digital builder.</p></div><div className="footer-right"><Socials /><span>© 2026 Pk Codes. All rights reserved.</span></div></footer>
+  </div>;
 }
