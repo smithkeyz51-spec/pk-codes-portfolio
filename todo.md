@@ -23,3 +23,9 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Add viewport reveal choreography with staggered groups across sections.
 - [x] Add subtle hero entrance, robot idle motion, card hover depth, and restrained project parallax.
 - [x] Respect prefers-reduced-motion and verify desktop/mobile performance.
+
+## Social icon update
+
+- [x] Replace the social-row email icon with the official Instagram icon and profile link.
+- [x] Preserve GitHub, LinkedIn, X, and contact-section email behavior.
+- [x] Verify new-tab behavior, aria-label, hover styling, and production build.

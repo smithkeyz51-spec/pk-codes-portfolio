@@ -1,7 +1,7 @@
 // Carbon Signal: editorial asymmetry, carbon glass panels, acid signal accents, and an ownable PK Codes robot identity.
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
-import { ArrowUpRight, Check, ChevronRight, Download, ExternalLink, Github, Linkedin, Mail, Menu, Minus, Send, Sparkles, X } from "lucide-react";
+import { ArrowUpRight, Check, ChevronRight, Download, ExternalLink, Github, Instagram, Linkedin, Mail, Menu, Minus, Send, Sparkles, X } from "lucide-react";
 import { toast } from "sonner";
 
 const store = {
@@ -27,7 +27,7 @@ const services = [
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) { return <div className="section-label"><span className="signal-line" />{children}</div>; }
-function Socials() { return <div className="socials" aria-label="Social links"><a href="https://github.com/smithkeyz51-spec" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a><a href="https://www.linkedin.com/in/pkene-gideon-7138a8421" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a><a href="https://x.com/pkenecrypt" target="_blank" rel="noreferrer" aria-label="X"><X size={16} /></a><a href="mailto:smithkeyz51@gmail.com" aria-label="Email"><Mail size={16} /></a></div>; }
+function Socials() { return <div className="socials" aria-label="Social links"><a href="https://github.com/smithkeyz51-spec" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a><a href="https://www.linkedin.com/in/pkene-gideon-7138a8421" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a><a href="https://x.com/pkenecrypt" target="_blank" rel="noreferrer" aria-label="X"><X size={16} /></a><a href="https://www.instagram.com/pkene_/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={16} /></a></div>; }
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
