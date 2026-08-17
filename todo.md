@@ -8,3 +8,10 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Blend authentic Waka, Beacon, and You're Enough screenshots into dark compositions with sharp centers, feathered edges, and restrained green glow.
 - [x] Keep Airville as a clean, direct authentic screenshot presentation.
 - [x] Verify project screenshot recognizability and responsive behavior after refinement.
+
+## Secure authenticated project screenshot correction
+
+- [x] Open Beacon and determine whether a secure authenticated session is available.
+- [x] Capture only the post-login Beacon dashboard; never record, hard-code, or publish credentials.
+- [x] Check You're Enough for an accessible authenticated/product experience and use it only if securely available.
+- [x] Replace login-page visuals and preserve cinematic framing; keep Airville unchanged.
