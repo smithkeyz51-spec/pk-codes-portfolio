@@ -75,3 +75,19 @@ h1 > span { color: #9da29a; }
 @keyframes scanline { 0%, 100% { transform: translateY(0); opacity: .25; } 50% { transform: translateY(260px); opacity: .75; } }
 @media (prefers-reduced-motion: reduce) { .robot-visual, .robot-scanline { animation: none; } }
 @media (max-width: 760px) { .robot-frame { width: min(100%, 340px); height: 390px; } .robot-caption { left: 18px; right: 18px; font-size: 8px; } }
+
+/* Screenshot art direction: the real website remains the source of truth; the surrounding frame adds atmosphere only. */
+.project-image { position: relative; isolation: isolate; overflow: hidden; background: #0b0e0d; }
+.project-image:not(.project-image-4):not(.project-image-text) { background: radial-gradient(circle at 50% 42%, rgba(184,240,74,.14), transparent 58%), linear-gradient(135deg, #101512, #070908 72%); box-shadow: inset 0 0 0 1px rgba(184,240,74,.13), 0 18px 44px rgba(0,0,0,.3); }
+.project-image:not(.project-image-4):not(.project-image-text):before { content: ""; position: absolute; z-index: 2; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(6,9,8,.64), transparent 14%, transparent 83%, rgba(6,9,8,.72)), linear-gradient(180deg, rgba(6,9,8,.56), transparent 18%, transparent 76%, rgba(6,9,8,.72)); }
+.project-image:not(.project-image-4):not(.project-image-text):after { content: ""; position: absolute; z-index: 1; inset: -18px; pointer-events: none; border: 24px solid rgba(7,10,8,.35); filter: blur(16px); border-radius: 28px; box-shadow: 0 0 44px rgba(184,240,74,.12); }
+.project-image:not(.project-image-4):not(.project-image-text) img { position: relative; z-index: 1; width: calc(100% - 28px); height: calc(100% - 28px); margin: 14px; object-fit: cover; object-position: center top; border: 1px solid rgba(226,239,226,.22); border-radius: 12px 24px 12px 22px; filter: saturate(.9) contrast(1.03); box-shadow: 0 12px 30px rgba(0,0,0,.42); transition: transform .35s cubic-bezier(.23,1,.32,1), filter .35s ease; }
+.project-image-1 img { transform: perspective(900px) rotateY(-2deg) rotateX(1deg); }
+.project-image-2 img { transform: perspective(900px) rotateY(2deg) rotateX(1deg); }
+.project-image-3 img { transform: perspective(900px) rotateY(-1deg) rotateX(-1deg); }
+.project-image:not(.project-image-4):not(.project-image-text):hover img { transform: perspective(900px) rotateY(0) rotateX(0) translateY(-3px) scale(1.02); filter: saturate(1) contrast(1.06); }
+.project-image-4 { background: #eef0f1; box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 18px 44px rgba(0,0,0,.28); }
+.project-image-4 img { position: relative; z-index: 1; width: calc(100% - 18px); height: calc(100% - 18px); margin: 9px; object-fit: cover; object-position: center top; border: 1px solid rgba(16,24,27,.18); border-radius: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.25); transition: transform .35s cubic-bezier(.23,1,.32,1); }
+.project-image-4:hover img { transform: scale(1.025); }
+.project-image:not(.project-image-text) .project-view { z-index: 4; }
+@media (max-width: 760px) { .project-image:not(.project-image-4):not(.project-image-text) img { width: calc(100% - 18px); height: calc(100% - 18px); margin: 9px; border-radius: 9px 16px 9px 15px; } .project-image:not(.project-image-4):not(.project-image-text):after { border-width: 15px; filter: blur(11px); } }
