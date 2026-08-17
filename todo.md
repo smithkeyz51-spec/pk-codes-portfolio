@@ -15,3 +15,11 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Capture only the post-login Beacon dashboard; never record, hard-code, or publish credentials.
 - [x] Check You're Enough for an accessible authenticated/product experience and use it only if securely available.
 - [x] Replace login-page visuals and preserve cinematic framing; keep Airville unchanged.
+
+## Premium scroll animation pass
+
+- [x] Add smooth anchor scrolling and a minimal top scroll-progress indicator.
+- [x] Add sticky-nav scrolled state with blur, opacity, and compact transition.
+- [x] Add viewport reveal choreography with staggered groups across sections.
+- [x] Add subtle hero entrance, robot idle motion, card hover depth, and restrained project parallax.
+- [x] Respect prefers-reduced-motion and verify desktop/mobile performance.

@@ -91,3 +91,46 @@ h1 > span { color: #9da29a; }
 .project-image-4:hover img { transform: scale(1.025); }
 .project-image:not(.project-image-text) .project-view { z-index: 4; }
 @media (max-width: 760px) { .project-image:not(.project-image-4):not(.project-image-text) img { width: calc(100% - 18px); height: calc(100% - 18px); margin: 9px; border-radius: 9px 16px 9px 15px; } .project-image:not(.project-image-4):not(.project-image-text):after { border-width: 15px; filter: blur(11px); } }
+
+/* Carbon Signal motion system: smooth, restrained, GPU-friendly, and fully reduced-motion aware. */
+html { scroll-behavior: smooth; }
+.site-shell { --scroll-progress: 0%; }
+.scroll-progress { position: fixed; z-index: 100; inset: 0 0 auto; height: 2px; pointer-events: none; background: linear-gradient(90deg, var(--acid), var(--acid)); transform: scaleX(calc(var(--scroll-progress) / 100)); transform-origin: left center; box-shadow: 0 0 12px rgba(184,240,74,.68); transition: transform .12s linear; }
+.topbar { transition: background .28s cubic-bezier(.23,1,.32,1), border-color .28s cubic-bezier(.23,1,.32,1), box-shadow .28s cubic-bezier(.23,1,.32,1), transform .28s cubic-bezier(.23,1,.32,1), padding .28s cubic-bezier(.23,1,.32,1); }
+.topbar.scrolled { background: rgba(8,10,9,.78); border-color: rgba(226,239,226,.16); box-shadow: 0 12px 34px rgba(0,0,0,.28); backdrop-filter: blur(18px); transform: translateY(-2px) scale(.985); }
+.reveal-ready { opacity: 0; transform: translateY(26px) scale(.975); transition: opacity .72s cubic-bezier(.23,1,.32,1) var(--reveal-delay, 0ms), transform .72s cubic-bezier(.23,1,.32,1) var(--reveal-delay, 0ms); }
+.reveal-ready.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+.hero.reveal-ready .availability, .hero.reveal-ready .eyebrow, .hero.reveal-ready h1, .hero.reveal-ready .hero-copy, .hero.reveal-ready .hero-actions, .hero.reveal-ready .hero-footnote, .hero.reveal-ready .hero-art { opacity: 0; transform: translateY(18px); }
+.hero.reveal-ready.is-visible .availability, .hero.reveal-ready.is-visible .eyebrow, .hero.reveal-ready.is-visible h1, .hero.reveal-ready.is-visible .hero-copy, .hero.reveal-ready.is-visible .hero-actions, .hero.reveal-ready.is-visible .hero-footnote, .hero.reveal-ready.is-visible .hero-art { opacity: 1; transform: translateY(0); transition: opacity .66s cubic-bezier(.23,1,.32,1), transform .66s cubic-bezier(.23,1,.32,1); }
+.hero.reveal-ready.is-visible .availability { transition-delay: 50ms; }
+.hero.reveal-ready.is-visible .eyebrow { transition-delay: 100ms; }
+.hero.reveal-ready.is-visible h1 { transition-delay: 150ms; }
+.hero.reveal-ready.is-visible .hero-copy { transition-delay: 210ms; }
+.hero.reveal-ready.is-visible .hero-actions { transition-delay: 270ms; }
+.hero.reveal-ready.is-visible .hero-footnote { transition-delay: 330ms; }
+.hero.reveal-ready.is-visible .hero-art { transition-delay: 180ms; }
+.robot-frame { animation: robot-float 7s ease-in-out infinite; }
+.robot-visual { animation: robot-breathe 5s ease-in-out infinite; }
+@keyframes robot-float { 0%,100% { transform: translateY(0) rotate(-.35deg); } 50% { transform: translateY(-8px) rotate(.35deg); } }
+@keyframes robot-breathe { 0%,100% { filter: drop-shadow(0 0 10px rgba(184,240,74,.16)); } 50% { filter: drop-shadow(0 0 20px rgba(184,240,74,.28)); } }
+.service-card, .project-card, .timeline-item, .approach-step { transition: transform .28s cubic-bezier(.23,1,.32,1), border-color .28s ease, box-shadow .28s ease; }
+.service-card:hover, .project-card:hover { transform: translateY(-5px); border-color: rgba(184,240,74,.32); box-shadow: 0 18px 44px rgba(0,0,0,.24), 0 0 28px rgba(184,240,74,.06); }
+.service-card:hover .card-arrow, .project-card:hover .project-links a { transform: translateX(3px); }
+.card-arrow, .project-links a { transition: transform .2s cubic-bezier(.23,1,.32,1); }
+.project-card .project-image img { will-change: transform; }
+.project-card:hover .project-image img { transform: translateY(-2px) scale(1.018); }
+.skill-pill, .service-card, .project-card, .timeline-item, .approach-step { opacity: 0; transform: translateY(22px); }
+.is-visible .skill-pill, .is-visible .service-card, .is-visible .project-card, .is-visible .timeline-item, .is-visible .approach-step { animation: child-reveal .62s cubic-bezier(.23,1,.32,1) forwards; }
+.is-visible .skill-pill:nth-child(1), .is-visible .service-card:nth-child(1), .is-visible .project-card:nth-child(1), .is-visible .timeline-item:nth-child(1), .is-visible .approach-step:nth-child(1) { animation-delay: 60ms; }
+.is-visible .skill-pill:nth-child(2), .is-visible .service-card:nth-child(2), .is-visible .project-card:nth-child(2), .is-visible .timeline-item:nth-child(2), .is-visible .approach-step:nth-child(2) { animation-delay: 120ms; }
+.is-visible .skill-pill:nth-child(3), .is-visible .service-card:nth-child(3), .is-visible .project-card:nth-child(3), .is-visible .timeline-item:nth-child(3), .is-visible .approach-step:nth-child(3) { animation-delay: 180ms; }
+.is-visible .skill-pill:nth-child(4), .is-visible .service-card:nth-child(4), .is-visible .project-card:nth-child(4), .is-visible .timeline-item:nth-child(4), .is-visible .approach-step:nth-child(4) { animation-delay: 240ms; }
+.is-visible .skill-pill:nth-child(5) { animation-delay: 300ms; }
+.is-visible .skill-pill:nth-child(6) { animation-delay: 360ms; }
+.is-visible .skill-pill:nth-child(7) { animation-delay: 420ms; }
+.is-visible .skill-pill:nth-child(8) { animation-delay: 480ms; }
+.is-visible .skill-pill:nth-child(9) { animation-delay: 540ms; }
+.is-visible .skill-pill:nth-child(10) { animation-delay: 600ms; }
+@keyframes child-reveal { from { opacity: 0; transform: translateY(22px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (min-width: 761px) and (prefers-reduced-motion: no-preference) { .project-card:nth-child(odd) .project-image img { transform: translateY(calc(var(--scroll-progress) * -1px)); } .project-card:nth-child(even) .project-image img { transform: translateY(calc(var(--scroll-progress) * .7px)); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .scroll-progress { transition: none; } .reveal-ready, .hero.reveal-ready .availability, .hero.reveal-ready .eyebrow, .hero.reveal-ready h1, .hero.reveal-ready .hero-copy, .hero.reveal-ready .hero-actions, .hero.reveal-ready .hero-footnote, .hero.reveal-ready .hero-art, .skill-pill, .service-card, .project-card, .timeline-item, .approach-step { opacity: 1; transform: none; transition: none; animation: none !important; } .robot-frame, .robot-visual { animation: none; } }
