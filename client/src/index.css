@@ -26,7 +26,7 @@ button { color: inherit; }
 .nav-cta { display: inline-flex !important; gap: 7px; align-items: center; padding: 10px 15px !important; border-radius: 999px; background: var(--foreground) !important; color: #101211 !important; font-weight: 600; }
 .menu-toggle { display: none; background: none; border: 0; }
 .hero { min-height: 660px; display: grid; grid-template-columns: 1fr .86fr; align-items: center; gap: 4rem; padding-top: 7rem; padding-bottom: 6rem; position: relative; }
-.hero:before { content: ""; position: absolute; inset: 3rem -7rem auto auto; width: 26rem; height: 20rem; background: url('/manus-storage/carbon-signal-texture_4c94089c.png') center/cover; opacity: .14; filter: saturate(.8); pointer-events: none; }
+.hero:before { content: ""; position: absolute; inset: 3rem -7rem auto auto; width: 26rem; height: 20rem; background: url('/assets/carbon-signal-texture.webp') center/cover; opacity: .14; filter: saturate(.8); pointer-events: none; }
 .hero-text { position: relative; z-index: 1; animation: rise .7s both; }
 .availability, .section-label, .eyebrow, .project-type, .timeline-date, .building-status small, .hero-footnote { font: 500 10px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 .availability { display: inline-flex; align-items: center; gap: 8px; color: #a9ada7; padding: 7px 10px; border: 1px solid rgba(184,240,74,.22); background: rgba(184,240,74,.04); border-radius: 999px; }

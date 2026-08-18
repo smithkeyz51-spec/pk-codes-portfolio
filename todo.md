@@ -39,7 +39,21 @@ Completed the requested final correction pass. The reference developer content i
 
 ## Production asset delivery repair
 
-- [ ] Inspect live console and network failures for images and the robot visual.
-- [ ] Compare source asset references, filename casing, public placement, and final dist output.
-- [ ] Identify whether the robot is a static image, CSS animation, or external runtime and verify its requests/configuration.
-- [ ] Fix broken production asset delivery, verify the live site, and redeploy.
+- [x] Inspect live console and network failures for images and the robot visual.
+- [x] Compare source asset references, filename casing, public placement, and final dist output.
+- [x] Identify whether the robot is a static image, CSS animation, or external runtime and verify its requests/configuration.
+- [x] Fix broken production asset delivery, verify the live site, and redeploy.
+
+## Reported live deployment mismatch
+
+- [x] Verify local HEAD, remote `user_github`, and GitHub `main` contain the unique robot asset reference.
+- [x] Compare cache-busted live HTML and image responses against the repository version.
+- [x] Apply a durable fix if the deployed site is stale or the storage asset is wrong.
+- [x] Push the confirmed fix to GitHub main, redeploy, and recheck the public URL.
+
+## Vercel production robot rendering issue
+
+- [ ] Inspect `pk-codes-portfolio.vercel.app` directly, including the actual bundle, image response, and computed hero styles.
+- [ ] Determine whether Vercel is applying a different asset URL, content type, CSS compositing rule, or stale asset.
+- [ ] Apply and validate a Vercel-safe hero rendering fix.
+- [ ] Push/redeploy and verify the Vercel production URL on desktop and mobile.
