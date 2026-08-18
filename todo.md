@@ -29,3 +29,10 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Replace the social-row email icon with the official Instagram icon and profile link.
 - [x] Preserve GitHub, LinkedIn, X, and contact-section email behavior.
 - [x] Verify new-tab behavior, aria-label, hover styling, and production build.
+
+## Vercel deployment repair
+
+- [x] Audit whether any frontend code imports or requires server/index.ts, Express, APIs, auth, or database access.
+- [x] Confirm the repository root contains package.json, client/index.html, vite.config.ts, and the intended Vite entrypoint.
+- [x] If static-only, remove server/index.ts and unused Express/server build dependencies and add correct Vercel static configuration.
+- [x] Verify the production output and preview behavior, then push the fix to the GitHub main branch.
