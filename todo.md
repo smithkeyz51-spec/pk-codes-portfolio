@@ -36,3 +36,10 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Confirm the repository root contains package.json, client/index.html, vite.config.ts, and the intended Vite entrypoint.
 - [x] If static-only, remove server/index.ts and unused Express/server build dependencies and add correct Vercel static configuration.
 - [x] Verify the production output and preview behavior, then push the fix to the GitHub main branch.
+
+## Production asset delivery repair
+
+- [ ] Inspect live console and network failures for images and the robot visual.
+- [ ] Compare source asset references, filename casing, public placement, and final dist output.
+- [ ] Identify whether the robot is a static image, CSS animation, or external runtime and verify its requests/configuration.
+- [ ] Fix broken production asset delivery, verify the live site, and redeploy.

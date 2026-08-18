@@ -5,7 +5,7 @@ import { ArrowUpRight, Check, ChevronRight, Download, ExternalLink, Github, Inst
 import { toast } from "sonner";
 
 const store = {
-  robot: "/manus-storage/pk-robot_ff83a544.png",
+  robot: "/manus-storage/pk-robot_72bb2f74.png",
   resume: "/manus-storage/PKENE_J_GIDEON_Updated_Resume_LinkedIn_fe60cec4.pdf",
   logo: "/manus-storage/pk-monogram_c30ccb10.png",
 };
