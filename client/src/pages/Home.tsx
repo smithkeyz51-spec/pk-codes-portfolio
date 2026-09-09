@@ -18,7 +18,7 @@ const projects = [
   { name: "Heralds Website", type: "Brand / Web Design", description: "A digital presence designed and developed for Heralds, presenting the organization's vision, mission and initiatives.", image: null, tags: ["Brand direction", "Digital presence", "Creative"], url: "https://www.linkedin.com/company/the-heralds-meridian/" },
 ];
 
-const skills = ["HTML", "CSS", "JavaScript · Learning", "Git", "GitHub", "Responsive Web Design", "Website Development", "UI/UX Fundamentals", "Product Thinking", "Digital Branding"];
+const skills = ["HTML", "CSS", "JavaScript", "Full-Stack Development", "Git", "GitHub", "Responsive Web Design", "Website Development", "UI/UX Fundamentals", "Product Thinking", "Digital Branding"];
 const services = [
   { number: "01", title: "Web Development", copy: "Building responsive websites and modern web experiences." },
   { number: "02", title: "Digital Products", copy: "Turning ideas into functional digital products designed around real problems." },

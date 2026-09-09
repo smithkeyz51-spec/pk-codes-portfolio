@@ -57,3 +57,9 @@ Completed the requested final correction pass. The reference developer content i
 - [ ] Determine whether Vercel is applying a different asset URL, content type, CSS compositing rule, or stale asset.
 - [ ] Apply and validate a Vercel-safe hero rendering fix.
 - [ ] Push/redeploy and verify the Vercel production URL on desktop and mobile.
+
+## Technological Foundation skill update
+
+- [x] Replace `JavaScript · Learning` with `JavaScript`.
+- [x] Add `Full-Stack Development` and keep every other skill unchanged.
+- [x] Verify the existing card styling, build, and responsive presentation remain unchanged.
