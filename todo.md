@@ -70,3 +70,9 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Replace only the existing navbar branding with the uploaded image linked to `/`.
 - [x] Preserve existing navbar links, spacing, animations, functionality, and responsive behavior.
 - [x] Verify logo proportions and visibility on desktop, tablet, and mobile, then publish.
+
+## Transparent PK-CODES navbar logo correction
+
+- [x] Remove the black background from the uploaded logo while preserving all artwork and proportions.
+- [x] Replace only the repository-served navbar logo asset; do not change the navbar background or other sections.
+- [x] Verify transparent rendering and natural sizing on desktop and mobile, then publish.
