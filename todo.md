@@ -63,3 +63,10 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Replace `JavaScript · Learning` with `JavaScript`.
 - [x] Add `Full-Stack Development` and keep every other skill unchanged.
 - [x] Verify the existing card styling, build, and responsive presentation remain unchanged.
+
+## Navbar PK-CODES logo update
+
+- [x] Stage the uploaded white PK-CODES logo as a persistent web asset.
+- [x] Replace only the existing navbar branding with the uploaded image linked to `/`.
+- [x] Preserve existing navbar links, spacing, animations, functionality, and responsive behavior.
+- [x] Verify logo proportions and visibility on desktop, tablet, and mobile, then publish.
