@@ -76,3 +76,10 @@ Completed the requested final correction pass. The reference developer content i
 - [x] Remove the black background from the uploaded logo while preserving all artwork and proportions.
 - [x] Replace only the repository-served navbar logo asset; do not change the navbar background or other sections.
 - [x] Verify transparent rendering and natural sizing on desktop and mobile, then publish.
+
+## Vercel deployment synchronization
+
+- [ ] Inspect Vercel project status, latest deployment commit, and build logs.
+- [ ] Confirm whether GitHub commit 549daf29 is successfully deployed.
+- [ ] Trigger a fresh deployment if the current one is stale, failed, or cached.
+- [ ] Verify the live asset response on the Vercel domain and report results.
