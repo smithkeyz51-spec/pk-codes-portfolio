@@ -8,7 +8,7 @@ const store = {
   robot: "/assets/pk-robot.webp",
   resume: "/assets/PKENE_J_GIDEON_Updated_Resume_LinkedIn.pdf",
   logo: "/assets/pk-monogram.webp",
-  footerLogo: "/assets/pk-codes-footer-logo.jpg",
+  footerLogo: "/assets/pk-codes-navbar-logo-transparent.png",
 };
 const navbarLogo = "/assets/pk-codes-navbar-logo-transparent.png";
 
