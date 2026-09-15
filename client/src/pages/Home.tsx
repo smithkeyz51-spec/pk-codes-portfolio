@@ -9,7 +9,7 @@ const store = {
   resume: "/assets/PKENE_J_GIDEON_Updated_Resume_LinkedIn.pdf",
   logo: "/assets/pk-monogram.webp",
 };
-const navbarLogo = "/assets/pk-codes-navbar-logo.png";
+const navbarLogo = "/assets/pk-codes-navbar-logo-transparent.png";
 
 const projects = [
   { name: "Waka", type: "Digital Product / Web Application", description: "A crowdsourced fare-tracking platform helping Nigerian commuters check real-world transport fares before boarding.", image: "/assets/waka-real.webp", tags: ["Product thinking", "Responsive web", "Vercel"], url: "https://waka-eight.vercel.app/" },
