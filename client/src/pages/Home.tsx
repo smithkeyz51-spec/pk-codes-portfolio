@@ -8,6 +8,7 @@ const store = {
   robot: "/assets/pk-robot.webp",
   resume: "/assets/PKENE_J_GIDEON_Updated_Resume_LinkedIn.pdf",
   logo: "/assets/pk-monogram.webp",
+  footerLogo: "/assets/pk-codes-footer-logo.jpg",
 };
 const navbarLogo = "/assets/pk-codes-navbar-logo-transparent.png";
 
@@ -85,6 +86,6 @@ export default function Home() {
       <section className="approach section-wrap" data-reveal><div className="approach-heading"><SectionLabel>MY APPROACH</SectionLabel><h2>A clear path from<br /><span>idea to interface.</span></h2></div><div className="approach-list">{[["01", "Understand", "Understand the problem, audience and objective."], ["02", "Design", "Plan the experience and interface."], ["03", "Build", "Turn the idea into a functional digital product."], ["04", "Launch", "Test, refine and put the product in the hands of users."]].map(([number, title, copy]) => <div className="approach-step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><ArrowUpRight size={18} /></div>)}</div></section>
       <section className="contact section-wrap" id="contact" data-reveal><div className="contact-copy"><SectionLabel>LET'S MAKE SOMETHING USEFUL</SectionLabel><h2>Have a useful idea<br />worth <span>shipping?</span></h2><p>Show me the problem. We’ll shape what ships.</p><a className="button button-primary" href="mailto:smithkeyz51@gmail.com">Let's Work Together <ArrowUpRight size={16} /></a></div><form className="contact-form" onSubmit={submit}>{formSent ? <div className="form-success"><Check size={24} /><h3>Message prepared.</h3><p>Thanks for reaching out. I’ll be in touch soon.</p><button type="button" className="text-link" onClick={() => setFormSent(false)}>Send another message <ArrowUpRight size={14} /></button></div> : <><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about the idea..." /></label><button className="button button-primary" type="submit">Send Message <Send size={15} /></button></>}</form></section>
     </main>
-    <footer className="footer section-wrap" data-reveal><div><button className="footer-brand" onClick={() => scrollTo("home")}><img src={store.logo} alt="" />PK CODES</button><p>Software developer & digital builder.</p></div><div className="footer-right"><Socials /><span>© 2026 Pk Codes. All rights reserved.</span></div></footer>
+    <footer className="footer section-wrap" data-reveal><div><button className="footer-brand" onClick={() => scrollTo("home")}><img className="footer-logo" src={store.footerLogo} alt="PK Codes" /></button><p>Software developer & digital builder.</p></div><div className="footer-right"><Socials /><span>© 2026 Pk Codes. All rights reserved.</span></div></footer>
   </div>;
 }
