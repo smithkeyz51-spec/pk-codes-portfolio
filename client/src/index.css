@@ -86,6 +86,10 @@ h1 > span { color: #9da29a; }
 .project-image-1 img { transform: perspective(900px) rotateY(-2deg) rotateX(1deg); }
 .project-image-1:before, .project-image-1:after { display: none; }
 .project-image-1 img, .project-image-1:hover img { object-fit: contain; object-position: center; transform: none; filter: none; opacity: 1; border-radius: 0; box-shadow: none; transition: none; }
+.project-image-1 { display: grid; place-items: center; padding: 24px 0; aspect-ratio: 1.1; background: radial-gradient(circle at 50% 50%, rgba(184,240,74,.16), transparent 54%), linear-gradient(135deg, #101512, #070908 72%); }
+.project-1 .project-image-1 { aspect-ratio: 1.1; }
+.project-image-1 img, .project-image-1:hover img { width: min(55%, 250px); height: auto; margin: 0; padding: 10px 6px; border: 7px solid #171b1a; border-radius: 28px; background: #f7f7f2; box-shadow: 0 0 0 1px rgba(240,239,232,.2), 0 0 0 5px rgba(184,240,74,.1), 0 20px 38px rgba(0,0,0,.48), 0 0 32px rgba(184,240,74,.13); }
+.project-image.project-image-1 img, .project-image.project-image-1:hover img { width: min(55%, 250px) !important; height: auto !important; margin: 0 !important; object-fit: contain !important; }
 .project-image-2 img { transform: perspective(900px) rotateY(2deg) rotateX(1deg); }
 .project-image-3 img { transform: perspective(900px) rotateY(-1deg) rotateX(-1deg); }
 .project-image:not(.project-image-4):not(.project-image-text):hover img { transform: perspective(900px) rotateY(0) rotateX(0) translateY(-3px) scale(1.02); filter: saturate(1) contrast(1.06); }
@@ -93,7 +97,7 @@ h1 > span { color: #9da29a; }
 .project-image-4 img { position: relative; z-index: 1; width: calc(100% - 18px); height: calc(100% - 18px); margin: 9px; object-fit: cover; object-position: center top; border: 1px solid rgba(16,24,27,.18); border-radius: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.25); transition: transform .35s cubic-bezier(.23,1,.32,1); }
 .project-image-4:hover img { transform: scale(1.025); }
 .project-image:not(.project-image-text) .project-view { z-index: 4; }
-@media (max-width: 760px) { .project-image:not(.project-image-4):not(.project-image-text) img { width: calc(100% - 18px); height: calc(100% - 18px); margin: 9px; border-radius: 9px 16px 9px 15px; } .project-image:not(.project-image-4):not(.project-image-text):after { border-width: 15px; filter: blur(11px); } }
+@media (max-width: 760px) { .project-image:not(.project-image-4):not(.project-image-text) img { width: calc(100% - 18px); height: calc(100% - 18px); margin: 9px; border-radius: 9px 16px 9px 15px; } .project-image-1, .project-1 .project-image-1 { aspect-ratio: 1.45; padding: 20px 0; } .project-image-1 img, .project-image-1:hover img { width: min(46%, 210px); height: auto; margin: 0; border-radius: 24px; } .project-image.project-image-1 img, .project-image.project-image-1:hover img { width: min(46%, 210px) !important; height: auto !important; margin: 0 !important; } .project-image:not(.project-image-4):not(.project-image-text):after { border-width: 15px; filter: blur(11px); } }
 
 /* Carbon Signal motion system: smooth, restrained, GPU-friendly, and fully reduced-motion aware. */
 html { scroll-behavior: smooth; }
