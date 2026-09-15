@@ -68,7 +68,28 @@ export default function Home() {
     }
     return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
   }, []);
-  const submit = (event: React.FormEvent<HTMLFormElement>) => { event.preventDefault(); setFormSent(true); toast.success("Thanks — your message is ready to be sent."); };
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || "Unable to send your message right now.");
+      setFormSent(true);
+      toast.success("Thanks — your message was sent.");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Unable to send your message right now.");
+    }
+  };
 
   return <div className={`site-shell${scrolled ? " has-scrolled" : ""}`} style={{ "--scroll-progress": `${scrollProgress * 100}%` } as CSSProperties}>
     <div className="scroll-progress" aria-hidden="true" />
@@ -84,7 +105,7 @@ export default function Home() {
       <section className="experience section-wrap" id="experience" data-reveal><div className="section-intro"><SectionLabel>EXPERIENCE</SectionLabel><h2>Where I’ve<br /><span>been useful.</span></h2></div><div className="timeline"><div className="timeline-item"><span className="timeline-date">2025 — PRESENT</span><div><h3>Creative Director</h3><p>Heralds Media & The Heralds Meridian</p><ul><li>Lead creative direction and visual identity</li><li>Design and oversee digital content, branding and media assets</li><li>Contributed to the Heralds digital presence and website</li></ul></div></div><div className="timeline-item"><span className="timeline-date">2024 — 2025</span><div><h3>Sales Representative</h3><p>GOV Real Estate</p><ul><li>Promoted real estate products and built customer relationships</li><li>Supported sales and marketing initiatives</li></ul></div></div><div className="timeline-item"><span className="timeline-date">2019 — 2021</span><div><h3>Computer Operator</h3><p>Faithville Computer Institute</p><ul><li>Document preparation, printing, typing, and office computer operations</li><li>Assisted students and clients; maintained digital records</li></ul></div></div></div></section>
       <section className="building section-wrap" data-reveal><div className="building-card"><div><SectionLabel>CURRENTLY BUILDING</SectionLabel><h2>Exploring new ideas,<br /><span>products and better ways<br />to build for the web.</span></h2></div><div className="building-status"><span className="status-dot" />Building<br /><small>OPEN TO COLLABORATION</small></div></div></section>
       <section className="approach section-wrap" data-reveal><div className="approach-heading"><SectionLabel>MY APPROACH</SectionLabel><h2>A clear path from<br /><span>idea to interface.</span></h2></div><div className="approach-list">{[["01", "Understand", "Understand the problem, audience and objective."], ["02", "Design", "Plan the experience and interface."], ["03", "Build", "Turn the idea into a functional digital product."], ["04", "Launch", "Test, refine and put the product in the hands of users."]].map(([number, title, copy]) => <div className="approach-step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><ArrowUpRight size={18} /></div>)}</div></section>
-      <section className="contact section-wrap" id="contact" data-reveal><div className="contact-copy"><SectionLabel>LET'S MAKE SOMETHING USEFUL</SectionLabel><h2>Have a useful idea<br />worth <span>shipping?</span></h2><p>Show me the problem. We’ll shape what ships.</p><a className="button button-primary" href="mailto:smithkeyz51@gmail.com">Let's Work Together <ArrowUpRight size={16} /></a></div><form className="contact-form" onSubmit={submit}>{formSent ? <div className="form-success"><Check size={24} /><h3>Message prepared.</h3><p>Thanks for reaching out. I’ll be in touch soon.</p><button type="button" className="text-link" onClick={() => setFormSent(false)}>Send another message <ArrowUpRight size={14} /></button></div> : <><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about the idea..." /></label><button className="button button-primary" type="submit">Send Message <Send size={15} /></button></>}</form></section>
+      <section className="contact section-wrap" id="contact" data-reveal><div className="contact-copy"><SectionLabel>LET'S MAKE SOMETHING USEFUL</SectionLabel><h2>Have a useful idea<br />worth <span>shipping?</span></h2><p>Show me the problem. We’ll shape what ships.</p><a className="button button-primary" href="mailto:smithkeyz51@gmail.com">Let's Work Together <ArrowUpRight size={16} /></a></div><form className="contact-form" onSubmit={submit}>{formSent ? <div className="form-success"><Check size={24} /><h3>Message sent.</h3><p>Thanks for reaching out. I’ll be in touch soon.</p><button type="button" className="text-link" onClick={() => setFormSent(false)}>Send another message <ArrowUpRight size={14} /></button></div> : <><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about the idea..." /></label><button className="button button-primary" type="submit">Send Message <Send size={15} /></button></>}</form></section>
     </main>
     <footer className="footer section-wrap" data-reveal><div><button className="footer-brand" onClick={() => scrollTo("home")}><img className="footer-logo" src={store.footerLogo} alt="PK Codes" /></button><p>Software developer & digital builder.</p></div><div className="footer-right"><Socials /><span>© 2026 Pk Codes. All rights reserved.</span></div></footer>
   </div>;
